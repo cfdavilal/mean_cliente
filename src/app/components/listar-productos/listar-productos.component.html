@@ -12,53 +12,39 @@
           >
             Nuevo
           </button>
-          </div>
-          <div class="card-body">
-            <!-- tabla -->
-            <table class="table table-striped mt-3">
-              <thead>
-                <tr>
-                  <th scope="col">Producto</th>
-                  <th scope="col">Categoria</th>
-                  <th scope="col">Ubicacion</th>
-                  <th scope="col">Precio</th>
-                  <th scope="col"></th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Coca Cola</td>
-                  <td>Bebida</td>
-                  <td>Sucre</td>
-                  <td>10</td>
-                  <td>
-                    <i class="fas fa-edit text-primary"></i>
-                    <i class="fas fa-trash text-danger" aria-hidden="true"></i>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Coca Cola</td>
-                  <td>Bebida</td>
-                  <td>Sucre</td>
-                  <td>10</td>
-                  <td>
-                    <i class="fas fa-edit text-primary"></i>
-                    <i class="fas fa-trash text-danger" aria-hidden="true"></i>
-                  </td>
-                </tr>
-                <tr>
-                  <td>Coca Cola</td>
-                  <td>Bebida</td>
-                  <td>Sucre</td>
-                  <td>10</td>
-                  <td>
-                    <i class="fas fa-edit text-primary"></i>
-                    <i class="fas fa-trash text-danger" aria-hidden="true"></i>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+        </div>
+        <div class="card-body">
+          <!-- tabla -->
+          <table
+            class="table table-striped mt-3"
+            *ngIf="listProductos.length > 0"
+          >
+            <thead>
+              <tr>
+                <th scope="col">Producto</th>
+                <th scope="col">Categoria</th>
+                <th scope="col">Ubicacion</th>
+                <th scope="col">Precio</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let producto of listProductos">
+                <td>{{ producto.producto }}</td>
+                <td>{{ producto.categoria }}</td>
+                <td>{{ producto.ubicacion }}</td>
+                <td>{{ producto.precio | currency: "BOB":"Bs" }}</td>
+                <td>
+                  <i class="fas fa-edit text-primary"></i>
+                  <i class="fas fa-trash text-danger" aria-hidden="true"></i>
+                </td>
+              </tr>
+              <h5 *ngIf="listProductos.length == 0" style="text-align: start">
+                No hay productos para mostrar
+              </h5>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </div>
