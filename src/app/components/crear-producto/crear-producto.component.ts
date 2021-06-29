@@ -29,7 +29,7 @@ export class CrearProductoComponent implements OnInit {
   agregarProducto() {
     if (this.productoForm.valid) {
       const producto: Producto = {
-        nombre: this.productoForm.get('producto')?.value,
+        producto: this.productoForm.get('producto')?.value,
         categoria: this.productoForm.get('categoria')?.value,
         ubicacion: this.productoForm.get('ubicacion')?.value,
         precio: this.productoForm.get('precio')?.value,
