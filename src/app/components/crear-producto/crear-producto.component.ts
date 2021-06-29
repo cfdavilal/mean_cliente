@@ -22,5 +22,8 @@ export class CrearProductoComponent implements OnInit {
 
   agregarProducto(){
     console.log(this.productoForm)
+    if(confirm('¿Esta seguro de agregar el producto?')){
+      alert('Se agrego el producto')
+    }
   }
 }
